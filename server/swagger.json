@@ -14,8 +14,8 @@
             "description": "API for Capsule"
         },
         {
-            "name": "Launch Pad",
-            "description": "API for Launch Pad"
+            "name": "Landing Pad",
+            "description": "API for Landing Pad"
         }
     ],
     "schemes": [
@@ -76,9 +76,9 @@
         "/landing-pads": {
             "get": {
                 "tags": [
-                    "Launch Pad"
+                    "Landing Pad"
                 ],
-                "description": "API for fetching the details of Launch Pad from SpaceX server on the basis of launch pad id.",
+                "description": "API for fetching the details of Landing Pad from SpaceX server on the basis of landing pad id.",
                 "operationId": "",
                 "produces": [
                     "application/json"
@@ -87,15 +87,15 @@
                     {
                         "name": "id",
                         "in": "query",
-                        "description": "launch pad id",
+                        "description": "landing pad id",
                         "schema": {
-                            "$ref": "#/definitions/launchPadRequest"
+                            "$ref": "#/definitions/landingPadRequest"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Launch Pad success response",
+                        "description": "Landing Pad success response",
                         "schema": {
                             "$ref": "#/definitions/SuccessResponse"
                         }
@@ -151,7 +151,7 @@
                 }
             }
         },
-        "launchPadRequest": {
+        "landingPadRequest": {
             "properties": {
                 "id": {
                     "example": 1,

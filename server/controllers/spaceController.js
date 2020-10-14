@@ -31,31 +31,31 @@ module.exports = {
       logger.info('Request to get Landing Pad Details');
       const { id } = req.query;
 
-      let launchPadDetailResult = await spaceService.getLandingPadDetails(id);
-      if (launchPadDetailResult.length == 0) {
+      let landingPadDetailResult = await spaceService.getLandingPadDetails(id);
+      if (landingPadDetailResult.length == 0) {
         logger.info('Landing Pad Details not found in DB, fetching from SpaceX');
 
-        launchPadDetailResult = await spaceService.getLandingPadDetailsFromSpaceX(id);
+        landingPadDetailResult = await spaceService.getLandingPadDetailsFromSpaceX(id);
 
         logger.info('Landing Pad Details recieved from SpaceX');
 
-        spaceService.storingLandingPadDetails(launchPadDetailResult);
+        spaceService.storingLandingPadDetails(landingPadDetailResult);
 
         res.data = {
-          id: launchPadDetailResult.side_id, full_name: launchPadDetailResult.site_name_long, status: launchPadDetailResult.status, location: launchPadDetailResult.location,
+          id: landingPadDetailResult.side_id, full_name: landingPadDetailResult.site_name_long, status: landingPadDetailResult.status, location: landingPadDetailResult.location,
         };
         next();
       } else {
         logger.info('Landing Pad Details recieved from DB');
-        const data = JSON.parse(launchPadDetailResult[0].spaceItem);
-        data.id = launchPadDetailResult[0].id;
+        const data = JSON.parse(landingPadDetailResult[0].spaceItem);
+        data.id = landingPadDetailResult[0].id;
         res.data = data;
         next();
       }
     } catch (err) {
       logger.error(err.message);
       if (err.message == 'Not Found') {
-        next(Boom.notFound('This launch pad site does not exists.'));
+        next(Boom.notFound('This landing pad site does not exists.'));
       } else {
         next(Boom.conflict(err.message));
       }

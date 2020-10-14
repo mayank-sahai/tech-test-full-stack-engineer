@@ -1,0 +1,25 @@
+.home{  
+    display: flex;
+    flex-direction: column;
+}
+
+.home__displayConsole{
+    display : flex;
+    border: black solid 2px;
+    background-color: lightgray;
+}
+
+
+.home__controlConsole{
+    display : flex;
+	flex-direction: row;
+    /* justify-content: space-evenly;
+    align-items: center; */
+    border: lightgray solid 2px;
+    background-color: black;
+}
+
+.controlConsole__option{
+    display : flex;
+    flex-direction: row;
+}

@@ -22,36 +22,36 @@ module.exports = {
     }
   },
 
-  getLandingPadDetails: async (launchPadId) => {
+  getLandingPadDetails: async (landingPadId) => {
     const queryResponse = await dbPool.query(
-      `SELECT * FROM spaceData where id='${launchPadId}'`,
+      `SELECT * FROM spaceData where id='${landingPadId}'`,
     );
 
     return queryResponse;
   },
 
-  storingLandingPadDetails: async (launchPadDetails) => {
+  storingLandingPadDetails: async (landingPadDetails) => {
     const queryResponse = await dbPool.query(
-      `INSERT INTO spaceData (id, spaceItem) VALUES ('${launchPadDetails.site_id
+      `INSERT INTO spaceData (id, spaceItem) VALUES ('${landingPadDetails.site_id
       }', '${JSON.stringify({
-        full_name: launchPadDetails.site_name_long,
-        status: launchPadDetails.status,
-        location: launchPadDetails.location,
+        full_name: landingPadDetails.site_name_long,
+        status: landingPadDetails.status,
+        location: landingPadDetails.location,
       })}')`,
     );
     return queryResponse;
   },
 
-  getLandingPadDetailsFromSpaceX: async (launchPadId) => {
+  getLandingPadDetailsFromSpaceX: async (landingPadId) => {
     try {
-      const launchPadDetails = await axios({
+      const landingPadDetails = await axios({
         headers: {
           contentType: 'application/json',
         },
         method: 'GET',
-        url: `https://api.spacexdata.com/v3/launchpads/${launchPadId}`,
+        url: `https://api.spacexdata.com/v3/landpads/${landingPadId}`,
       });
-      return launchPadDetails.data;
+      return landingPadDetails.data;
     } catch (err) {
       throw new Error(err.response.data.error);
     }
