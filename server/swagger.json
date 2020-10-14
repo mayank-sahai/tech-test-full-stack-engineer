@@ -1,0 +1,163 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "flight-dashboard",
+        "description": "Swagger UI for flight-dashboard",
+        "termsOfService": "http://swagger.io/terms/"
+    },
+    "host": "localhost:4000",
+    "basePath": "/api",
+    "tags": [
+        {
+            "name": "Capsule",
+            "description": "API for Capsule"
+        },
+        {
+            "name": "Launch Pad",
+            "description": "API for Launch Pad"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/capsules": {
+            "get": {
+                "tags": [
+                    "Capsule"
+                ],
+                "description": "API for fetching the list of Capsules from SpaceX server",
+                "operationId": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Capsules success response",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Api does not exists",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    },
+                    "422": {
+                        "description": "Empty field in request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Error response from DB",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/landing-pads": {
+            "get": {
+                "tags": [
+                    "Launch Pad"
+                ],
+                "description": "API for fetching the details of Launch Pad from SpaceX server on the basis of launch pad id.",
+                "operationId": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "launch pad id",
+                        "schema": {
+                            "$ref": "#/definitions/launchPadRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Launch Pad success response",
+                        "schema": {
+                            "$ref": "#/definitions/SuccessResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "Api does not exists",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    },
+                    "409": {
+                        "description": "Something went wrong",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    },
+                    "422": {
+                        "description": "Empty field in request",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Error response from DB",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "SuccessResponse": {
+            "properties": {
+                "message": {
+                    "example": "Success message!"
+                },
+                "success": {
+                    "type": "bool",
+                    "example": true
+                }
+            }
+        },
+        "ErrorResponse": {
+            "properties": {
+                "error": {
+                    "example": "contains error object or message"
+                },
+                "success": {
+                    "type": "bool",
+                    "example": false
+                }
+            }
+        },
+        "launchPadRequest": {
+            "properties": {
+                "id": {
+                    "example": 1,
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
