@@ -19,6 +19,17 @@ function Home() {
         setflag(1);
     };
 
+    const editor = async (e) => {
+        // e.preventDefault();
+        let charlen = e.target.value.length;
+        console.log(charlen);
+        if (charlen > 15) {
+            alert('Id cannot be more than 15 char.')
+        } else {
+            setInput(e.target.value);
+        }
+    };
+
     const getLandingPad = async (e) => {
         e.preventDefault();
         try {
@@ -56,7 +67,7 @@ function Home() {
                 <div className="controlConsole__option">
                     <input
                         value={input}
-                        onChange={(e) => setInput(e.target.value)}
+                        onChange={editor}
                         className="controlConsole__InputField"
                         placeholder="ksc_lc_39a"
                         type="text"
