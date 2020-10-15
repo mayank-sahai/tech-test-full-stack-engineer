@@ -1,22 +1,32 @@
 .home{  
-    display: flex;
-    flex-direction: column;
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home__displayConsole{
     display : flex;
+    flex-direction: column;
+    height: 50%;
+    padding-left: 20px;
+    justify-content: space-around;
+    width: 50%;
     border: black solid 2px;
     background-color: lightgray;
+    overflow-y:auto
 }
 
 
 .home__controlConsole{
     display : flex;
 	flex-direction: row;
-    /* justify-content: space-evenly;
-    align-items: center; */
+    justify-content: space-evenly;
+    align-items: center;
     border: lightgray solid 2px;
     background-color: black;
+    width: 50%;
 }
 
 .controlConsole__option{

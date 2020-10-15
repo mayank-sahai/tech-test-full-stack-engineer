@@ -1,32 +1,42 @@
 import React from 'react';
 import './LandingCard.css';
 
-function LandingCard(data) {
+function LandingCard(props) {
+    console.log("inside land ", props.data);
     return (
         <div className="landingCard">
-             <div className="landingCard__info">
-                <p className="landingCard__label">Id</p>
-                {data.id}
+            <p className="landingCard__headlabel">Basic Info - </p>
+            <div className="landingCard__info">
+                <p className="landingCard__label">Id:</p>
+                {props.data.id}
             </div>
             <div className="landingCard__info">
-                <p className="landingCard__label">Full Name</p>
-                {data.full_name}
+                <p className="landingCard__label">Full Name:</p>
+                {props.data.full_name}
             </div>
             <div className="landingCard__info">
-                <p className="landingCard__label">Status</p>
-                {data.status}
+                <p className="landingCard__label">Status:</p>
+                {props.data.status}
             </div>
-            {data.location &&
-                <div className="landingCard__info">
+            {props.data.location &&
+                <div className="landingCard__locationInfo">
                     <p className="landingCard__headlabel">Location - </p>
-                    <p className="landingCard__label">Name</p>
-                    {data.location.name}
-                    <p className="landingCard__label">Region</p>
-                    {data.location.region}
-                    <p className="landingCard__label">Latitude</p>
-                    {data.location.latitude}
-                    <p className="landingCard__label">Longitude</p>
-                    {data.location.longitude}
+                    <div className="landingCard__info">
+                        <p className="landingCard__label">Name:</p>
+                        {props.data.location.name}
+                    </div>
+                    <div className="landingCard__info">
+                        <p className="landingCard__label">Region:</p>
+                        {props.data.location.region}
+                    </div>
+                    <div className="landingCard__info">
+                        <p className="landingCard__label">Latitude:</p>
+                        {props.data.location.latitude}
+                    </div>
+                    <div className="landingCard__info">
+                        <p className="landingCard__label">Longitude:</p>
+                        {props.data.location.longitude}
+                    </div>
                 </div>
             }
         </div>

@@ -1,18 +1,26 @@
 .landingCard{
 display: flex;
 flex-direction: column;
+
+  border: 2px solid black;
+  background-color: beige;
+  padding: 10px;
+  margin: 5px;
 }
 
 .landingCard__info{
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
 .landingCard__label{
     font-weight: 900;
-    font-size: large;
+  padding-right: 5px;
+  font-size: small;
 }
 
 .landingCard__headlabel{
     font-weight: 1000;
-    font-size: large;
+    font-size: medium;
 }
