@@ -14,7 +14,6 @@ function Home() {
     const getCapsules = async (e) => {
         e.preventDefault();
         let details = await BackendService.getCapsules();
-        console.log(details.data.data);
         setdata(details.data.data);
         setflag(1);
     };
@@ -22,7 +21,6 @@ function Home() {
     const editor = async (e) => {
         // e.preventDefault();
         let charlen = e.target.value.length;
-        console.log(charlen);
         if (charlen > 15) {
             alert('Id cannot be more than 15 char.')
         } else {
@@ -35,7 +33,6 @@ function Home() {
         try {
             if (input != "") {
                 let details = await BackendService.getLandingPadDetails(input);
-                console.log("res ", details);
                 setflag(2);
                 setdata(details.data.data);
                 setInput('');
@@ -45,7 +42,6 @@ function Home() {
             }
         }
         catch (err) {
-            console.log("err ",err);
             alert("Something went wrong!");
         }
     };
@@ -69,7 +65,7 @@ function Home() {
                         value={input}
                         onChange={editor}
                         className="controlConsole__InputField"
-                        placeholder="ksc_lc_39a"
+                        placeholder="LZ-1"
                         type="text"
                     ></input>
                     <Button onClick={getLandingPad} variant="contained" color="primary">

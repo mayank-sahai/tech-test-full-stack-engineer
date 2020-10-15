@@ -42,7 +42,7 @@ module.exports = {
         spaceService.storingLandingPadDetails(landingPadDetailResult);
 
         res.data = {
-          id: landingPadDetailResult.side_id, full_name: landingPadDetailResult.site_name_long, status: landingPadDetailResult.status, location: landingPadDetailResult.location,
+          id: landingPadDetailResult.id, full_name: landingPadDetailResult.full_name, status: landingPadDetailResult.status, location: landingPadDetailResult.location,
         };
         next();
       } else {

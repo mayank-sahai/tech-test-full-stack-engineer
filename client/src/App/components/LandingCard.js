@@ -2,7 +2,6 @@ import React from 'react';
 import './LandingCard.css';
 
 function LandingCard(props) {
-    console.log("inside land ", props.data);
     return (
         <div className="landingCard">
             <p className="landingCard__headlabel">Basic Info - </p>

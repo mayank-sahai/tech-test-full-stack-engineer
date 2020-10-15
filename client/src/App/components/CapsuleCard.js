@@ -2,7 +2,6 @@ import React from 'react'
 import './CapsuleCard.css';
 
 function CapsuleCard(props) {
-    // console.log(props);
     return (
         <div className="capsuleCard">
             <div className="capsuleCard__section">
